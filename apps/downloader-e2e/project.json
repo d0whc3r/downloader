@@ -2,12 +2,22 @@
   "name": "downloader-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/downloader-e2e/src",
+  "projectType": "application",
   "targets": {
     "e2e": {
-      "executor": "@nx/playwright:playwright",
-      "outputs": ["{workspaceRoot}/dist/.playwright/apps/downloader-e2e"],
+      "executor": "@nx/cypress:cypress",
       "options": {
-        "config": "apps/downloader-e2e/playwright.config.ts"
+        "cypressConfig": "apps/downloader-e2e/cypress.config.ts",
+        "devServerTarget": "downloader:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "downloader:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "downloader:serve-static"
+        }
       }
     },
     "lint": {
@@ -18,5 +28,6 @@
       }
     }
   },
+  "tags": [],
   "implicitDependencies": ["downloader"]
 }

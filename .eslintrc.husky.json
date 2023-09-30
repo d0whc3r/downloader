@@ -1,0 +1,14 @@
+{
+  "extends": ["./.eslintrc.json"],
+  "ignorePatterns": ["!**/*", "./apps/*-e2e/*", "./e2e/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "no-console": "error",
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "@typescript-eslint/no-namespace": "off"
+      }
+    }
+  ]
+}

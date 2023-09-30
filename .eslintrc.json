@@ -1,7 +1,13 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "plugins": ["@nx", "@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -11,6 +17,7 @@
           {
             "enforceBuildableLibDependency": true,
             "allow": [],
+            "allowCircularSelfDependency": true,
             "depConstraints": [
               {
                 "sourceTag": "*",
@@ -30,6 +37,23 @@
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nx/javascript"],
       "rules": {}
+    },
+    {
+      "files": ["*.tsx", "*.jsx"],
+      "rules": {
+        "react/jsx-curly-brace-presence": [
+          "error",
+          {
+            "props": "never"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["jest.*.[jt]s?(x)"],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
+      }
     }
   ]
 }

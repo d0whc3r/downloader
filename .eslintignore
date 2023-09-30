@@ -1,1 +1,6 @@
+.yarn
+.next
 node_modules
+dist
+.husky
+coverage

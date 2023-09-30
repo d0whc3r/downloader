@@ -5,31 +5,58 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nx/vite:build",
+      "executor": "@nx/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/downloader"
+        "compiler": "babel",
+        "outputPath": "dist/apps/downloader",
+        "index": "apps/downloader/src/index.html",
+        "baseHref": "/",
+        "main": "apps/downloader/src/main.tsx",
+        "tsConfig": "apps/downloader/tsconfig.app.json",
+        "assets": [
+          "apps/downloader/src/favicon.ico",
+          "apps/downloader/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/downloader/webpack.config.js"
       },
       "configurations": {
         "development": {
-          "mode": "development"
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
         },
         "production": {
-          "mode": "production"
+          "fileReplacements": [
+            {
+              "replace": "apps/downloader/src/environments/environment.ts",
+              "with": "apps/downloader/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
         }
       }
     },
     "serve": {
-      "executor": "@nx/vite:dev-server",
+      "executor": "@nx/webpack:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "downloader:build"
+        "buildTarget": "downloader:build",
+        "hmr": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "downloader:build:development",
-          "hmr": true
+          "buildTarget": "downloader:build:development"
         },
         "production": {
           "buildTarget": "downloader:build:production",
@@ -37,34 +64,31 @@
         }
       }
     },
-    "preview": {
-      "executor": "@nx/vite:preview-server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "downloader:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "downloader:build:development"
-        },
-        "production": {
-          "buildTarget": "downloader:build:production"
-        }
-      }
-    },
-    "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{options.reportsDirectory}"],
-      "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/apps/downloader"
-      }
-    },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/downloader/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "downloader:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/downloader/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     }
   },
