@@ -1,0 +1,352 @@
+diff --git a/node_modules/nx-electron/generators.json b/node_modules/nx-electron/generators.json
+index 981b446..2c2e4ab 100644
+--- a/node_modules/nx-electron/generators.json
++++ b/node_modules/nx-electron/generators.json
+@@ -2,7 +2,7 @@
+   "$schema": "http://json-schema.org/schema",
+   "name": "nx-electron",
+   "version": "0.0.1",
+-  "extends": ["@nrwl/workspace"],
++  "extends": ["@nx/workspace"],
+   "generators": {
+     "application": {
+       "factory": "./src/generators/nx-electron/generator",
+diff --git a/node_modules/nx-electron/src/executors/build/executor.compat.js b/node_modules/nx-electron/src/executors/build/executor.compat.js
+index 05298e4..dd99d72 100644
+--- a/node_modules/nx-electron/src/executors/build/executor.compat.js
++++ b/node_modules/nx-electron/src/executors/build/executor.compat.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ const tslib_1 = require("tslib");
+-const devkit_1 = require("@nrwl/devkit");
++const devkit_1 = require("@nx/devkit");
+ const executor_1 = tslib_1.__importDefault(require("./executor"));
+ function executorAdapter(options, context) {
+     return (0, executor_1.default)(options, context);
+diff --git a/node_modules/nx-electron/src/executors/build/executor.d.ts b/node_modules/nx-electron/src/executors/build/executor.d.ts
+index fc9dc2d..eddc411 100644
+--- a/node_modules/nx-electron/src/executors/build/executor.d.ts
++++ b/node_modules/nx-electron/src/executors/build/executor.d.ts
+@@ -1,4 +1,4 @@
+-import { ExecutorContext } from '@nrwl/devkit';
++import { ExecutorContext } from '@nx/devkit';
+ import { BuildBuilderOptions } from '../../utils/types';
+ export type ElectronBuildEvent = {
+     outfile: string;
+diff --git a/node_modules/nx-electron/src/executors/build/executor.js b/node_modules/nx-electron/src/executors/build/executor.js
+index 85da47b..9b637b9 100644
+--- a/node_modules/nx-electron/src/executors/build/executor.js
++++ b/node_modules/nx-electron/src/executors/build/executor.js
+@@ -6,13 +6,13 @@ const operators_1 = require("rxjs/operators");
+ const rxjs_for_await_1 = require("rxjs-for-await");
+ const fs_1 = require("fs");
+ const run_webpack_1 = require("../../utils/run-webpack");
+-const project_graph_1 = require("@nrwl/workspace/src/core/project-graph");
+-const buildable_libs_utils_1 = require("@nrwl/workspace/src/utilities/buildable-libs-utils");
++const project_graph_1 = require("@nx/workspace/src/core/project-graph");
++const buildable_libs_utils_1 = require("@nx/workspace/src/utilities/buildable-libs-utils");
+ const electron_config_1 = require("../../utils/electron.config");
+ const normalize_1 = require("../../utils/normalize");
+ const workspace_1 = require("../../utils/workspace");
+ const config_1 = require("../../utils/config");
+-const js_1 = require("@nrwl/js");
++const js_1 = require("@nx/js");
+ function executor(rawOptions, context) {
+     const { sourceRoot, projectRoot } = (0, workspace_1.getSourceRoot)(context);
+     const normalizedOptions = (0, normalize_1.normalizeBuildOptions)(rawOptions, context.root, sourceRoot, projectRoot);
+diff --git a/node_modules/nx-electron/src/executors/execute/executor.compat.js b/node_modules/nx-electron/src/executors/execute/executor.compat.js
+index 503656f..21b30e5 100644
+--- a/node_modules/nx-electron/src/executors/execute/executor.compat.js
++++ b/node_modules/nx-electron/src/executors/execute/executor.compat.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ const tslib_1 = require("tslib");
+-const devkit_1 = require("@nrwl/devkit");
++const devkit_1 = require("@nx/devkit");
+ const executor_1 = tslib_1.__importDefault(require("./executor"));
+ exports.default = (0, devkit_1.convertNxExecutor)(executor_1.default);
+ //# sourceMappingURL=executor.compat.js.map
+diff --git a/node_modules/nx-electron/src/executors/execute/executor.d.ts b/node_modules/nx-electron/src/executors/execute/executor.d.ts
+index 2c3e5cf..931ccae 100644
+--- a/node_modules/nx-electron/src/executors/execute/executor.d.ts
++++ b/node_modules/nx-electron/src/executors/execute/executor.d.ts
+@@ -1,4 +1,4 @@
+-import { ExecutorContext } from '@nrwl/devkit';
++import { ExecutorContext } from '@nx/devkit';
+ import { ElectronBuildEvent } from '../build/executor';
+ export declare const enum InspectType {
+     Inspect = "inspect",
+diff --git a/node_modules/nx-electron/src/executors/execute/executor.js b/node_modules/nx-electron/src/executors/execute/executor.js
+index a682054..1f2616a 100644
+--- a/node_modules/nx-electron/src/executors/execute/executor.js
++++ b/node_modules/nx-electron/src/executors/execute/executor.js
+@@ -2,7 +2,7 @@
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.executor = void 0;
+ const tslib_1 = require("tslib");
+-const devkit_1 = require("@nrwl/devkit");
++const devkit_1 = require("@nx/devkit");
+ const child_process_1 = require("child_process");
+ const util_1 = require("util");
+ const electron_1 = tslib_1.__importDefault(require("electron"));
+diff --git a/node_modules/nx-electron/src/executors/package/executor.compat.js b/node_modules/nx-electron/src/executors/package/executor.compat.js
+index 503656f..21b30e5 100644
+--- a/node_modules/nx-electron/src/executors/package/executor.compat.js
++++ b/node_modules/nx-electron/src/executors/package/executor.compat.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ const tslib_1 = require("tslib");
+-const devkit_1 = require("@nrwl/devkit");
++const devkit_1 = require("@nx/devkit");
+ const executor_1 = tslib_1.__importDefault(require("./executor"));
+ exports.default = (0, devkit_1.convertNxExecutor)(executor_1.default);
+ //# sourceMappingURL=executor.compat.js.map
+diff --git a/node_modules/nx-electron/src/executors/package/executor.d.ts b/node_modules/nx-electron/src/executors/package/executor.d.ts
+index f6f6453..46d11b1 100644
+--- a/node_modules/nx-electron/src/executors/package/executor.d.ts
++++ b/node_modules/nx-electron/src/executors/package/executor.d.ts
+@@ -1,4 +1,4 @@
+-import { ExecutorContext } from '@nrwl/devkit';
++import { ExecutorContext } from '@nx/devkit';
+ import { Configuration, PublishOptions } from 'electron-builder';
+ export interface PackageElectronBuilderOptions extends Configuration {
+     name: string;
+diff --git a/node_modules/nx-electron/src/executors/package/executor.js b/node_modules/nx-electron/src/executors/package/executor.js
+index 91c7009..6e16494 100644
+--- a/node_modules/nx-electron/src/executors/package/executor.js
++++ b/node_modules/nx-electron/src/executors/package/executor.js
+@@ -2,7 +2,7 @@
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.executor = void 0;
+ const tslib_1 = require("tslib");
+-const devkit_1 = require("@nrwl/devkit");
++const devkit_1 = require("@nx/devkit");
+ const electron_builder_1 = require("electron-builder");
+ const fs_1 = require("fs");
+ const path_1 = require("path");
+diff --git a/node_modules/nx-electron/src/generators/init/generator.compat.js b/node_modules/nx-electron/src/generators/init/generator.compat.js
+index f18f3be..d993ceb 100644
+--- a/node_modules/nx-electron/src/generators/init/generator.compat.js
++++ b/node_modules/nx-electron/src/generators/init/generator.compat.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ const tslib_1 = require("tslib");
+-const devkit_1 = require("@nrwl/devkit");
++const devkit_1 = require("@nx/devkit");
+ const generator_1 = tslib_1.__importDefault(require("./generator"));
+ exports.default = (0, devkit_1.convertNxGenerator)(generator_1.default);
+ //# sourceMappingURL=generator.compat.js.map
+\ No newline at end of file
+diff --git a/node_modules/nx-electron/src/generators/init/generator.d.ts b/node_modules/nx-electron/src/generators/init/generator.d.ts
+index 20096ea..8af2b25 100644
+--- a/node_modules/nx-electron/src/generators/init/generator.d.ts
++++ b/node_modules/nx-electron/src/generators/init/generator.d.ts
+@@ -1,4 +1,4 @@
+-import { Tree } from '@nrwl/devkit';
++import { Tree } from '@nx/devkit';
+ import { Schema } from './schema';
+ export declare function generator(tree: Tree, schema: Schema): Promise<() => Promise<void>>;
+ export default generator;
+diff --git a/node_modules/nx-electron/src/generators/init/generator.js b/node_modules/nx-electron/src/generators/init/generator.js
+index acf7b96..ca43d80 100644
+--- a/node_modules/nx-electron/src/generators/init/generator.js
++++ b/node_modules/nx-electron/src/generators/init/generator.js
+@@ -2,10 +2,10 @@
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.generator = void 0;
+ const tslib_1 = require("tslib");
+-const devkit_1 = require("@nrwl/devkit");
++const devkit_1 = require("@nx/devkit");
+ const versions_1 = require("../../utils/versions");
+-const set_default_collection_1 = require("@nrwl/workspace/src/utilities/set-default-collection");
+-const jest_1 = require("@nrwl/jest");
++// const set_default_collection_1 = require("@nx/workspace/src/utilities/set-default-collection");
++const jest_1 = require("@nx/jest");
+ function addDependencies(tree) {
+     return (0, devkit_1.addDependenciesToPackageJson)(tree, {}, {
+         'nx-electron': versions_1.nxElectronVersion,
+@@ -40,7 +40,7 @@ function normalizeOptions(schema) {
+ function generator(tree, schema) {
+     return tslib_1.__awaiter(this, void 0, void 0, function* () {
+         const options = normalizeOptions(schema);
+-        (0, set_default_collection_1.setDefaultCollection)(tree, 'nx-electron');
++        // (0, set_default_collection_1.setDefaultCollection)(tree, 'nx-electron');
+         let jestInstall;
+         if (options.unitTestRunner === 'jest') {
+             jestInstall = yield (0, jest_1.jestInitGenerator)(tree, {});
+diff --git a/node_modules/nx-electron/src/generators/nx-electron/generator.compat.js b/node_modules/nx-electron/src/generators/nx-electron/generator.compat.js
+index f18f3be..3707b5a 100644
+--- a/node_modules/nx-electron/src/generators/nx-electron/generator.compat.js
++++ b/node_modules/nx-electron/src/generators/nx-electron/generator.compat.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ const tslib_1 = require("tslib");
+-const devkit_1 = require("@nrwl/devkit");
++const devkit_1 = require("@nx/devkit");
+ const generator_1 = tslib_1.__importDefault(require("./generator"));
+ exports.default = (0, devkit_1.convertNxGenerator)(generator_1.default);
+ //# sourceMappingURL=generator.compat.js.map
+diff --git a/node_modules/nx-electron/src/generators/nx-electron/generator.d.ts b/node_modules/nx-electron/src/generators/nx-electron/generator.d.ts
+index 92e973b..c95b723 100644
+--- a/node_modules/nx-electron/src/generators/nx-electron/generator.d.ts
++++ b/node_modules/nx-electron/src/generators/nx-electron/generator.d.ts
+@@ -1,4 +1,4 @@
+-import { GeneratorCallback, Tree } from '@nrwl/devkit';
++import { GeneratorCallback, Tree } from '@nx/devkit';
+ import { Schema } from './schema';
+ export interface NormalizedSchema extends Schema {
+     appProjectRoot: string;
+diff --git a/node_modules/nx-electron/src/generators/nx-electron/generator.js b/node_modules/nx-electron/src/generators/nx-electron/generator.js
+index 97cf6db..ad55dec 100644
+--- a/node_modules/nx-electron/src/generators/nx-electron/generator.js
++++ b/node_modules/nx-electron/src/generators/nx-electron/generator.js
+@@ -2,11 +2,11 @@
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.generator = exports.addLintingToApplication = void 0;
+ const tslib_1 = require("tslib");
+-const devkit_1 = require("@nrwl/devkit");
++const devkit_1 = require("@nx/devkit");
+ const path_1 = require("path");
+-const linter_1 = require("@nrwl/linter");
+-const jest_1 = require("@nrwl/jest");
+-const run_tasks_in_serial_1 = require("@nrwl/workspace/src/utilities/run-tasks-in-serial");
++const linter_1 = require("@nx/linter");
++const jest_1 = require("@nx/jest");
++const run_tasks_in_serial_1 = require("@nx/workspace/src/utilities/run-tasks-in-serial");
+ const generator_1 = require("../init/generator");
+ function getBuildConfig(project, options) {
+     return {
+diff --git a/node_modules/nx-electron/src/generators/nx-electron/schema.d.ts b/node_modules/nx-electron/src/generators/nx-electron/schema.d.ts
+index c3fcffb..b7db9d5 100644
+--- a/node_modules/nx-electron/src/generators/nx-electron/schema.d.ts
++++ b/node_modules/nx-electron/src/generators/nx-electron/schema.d.ts
+@@ -1,4 +1,4 @@
+-import { Linter } from '@nrwl/linter';
++import { Linter } from '@nx/linter';
+ 
+ export interface Schema {
+   name: string;
+diff --git a/node_modules/nx-electron/src/migrations/update-10-0-0/migrate-packager.js b/node_modules/nx-electron/src/migrations/update-10-0-0/migrate-packager.js
+index b908efd..1e5e18c 100644
+--- a/node_modules/nx-electron/src/migrations/update-10-0-0/migrate-packager.js
++++ b/node_modules/nx-electron/src/migrations/update-10-0-0/migrate-packager.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ const schematics_1 = require("@angular-devkit/schematics");
+-const workspace_1 = require("@nrwl/workspace");
++const workspace_1 = require("@nx/workspace");
+ function updateConfigurations() {
+     return (0, workspace_1.updateWorkspace)((workspaceJson) => {
+         Object.entries(workspaceJson.projects).forEach(([projectName, project]) => {
+diff --git a/node_modules/nx-electron/src/migrations/update-12-0-0/remove-deprecated-options.d.ts b/node_modules/nx-electron/src/migrations/update-12-0-0/remove-deprecated-options.d.ts
+index 1e3c2a3..99be55f 100644
+--- a/node_modules/nx-electron/src/migrations/update-12-0-0/remove-deprecated-options.d.ts
++++ b/node_modules/nx-electron/src/migrations/update-12-0-0/remove-deprecated-options.d.ts
+@@ -1,2 +1,2 @@
+-import { Tree } from '@nrwl/devkit';
++import { Tree } from '@nx/devkit';
+ export default function update(host: Tree): Promise<void>;
+diff --git a/node_modules/nx-electron/src/migrations/update-12-0-0/remove-deprecated-options.js b/node_modules/nx-electron/src/migrations/update-12-0-0/remove-deprecated-options.js
+index 6b5c312..b30f48d 100644
+--- a/node_modules/nx-electron/src/migrations/update-12-0-0/remove-deprecated-options.js
++++ b/node_modules/nx-electron/src/migrations/update-12-0-0/remove-deprecated-options.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ const tslib_1 = require("tslib");
+-const devkit_1 = require("@nrwl/devkit");
++const devkit_1 = require("@nx/devkit");
+ function update(host) {
+     var _a, _b, _c, _d, _e;
+     return tslib_1.__awaiter(this, void 0, void 0, function* () {
+diff --git a/node_modules/nx-electron/src/migrations/update-8-0-0/add-packager-config.js b/node_modules/nx-electron/src/migrations/update-8-0-0/add-packager-config.js
+index 2cf965f..b4ed21a 100644
+--- a/node_modules/nx-electron/src/migrations/update-8-0-0/add-packager-config.js
++++ b/node_modules/nx-electron/src/migrations/update-8-0-0/add-packager-config.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ const schematics_1 = require("@angular-devkit/schematics");
+-const workspace_1 = require("@nrwl/workspace");
++const workspace_1 = require("@nx/workspace");
+ const path_1 = require("path");
+ function addConfigurations() {
+     return (0, workspace_1.updateWorkspace)((workspaceJson) => {
+diff --git a/node_modules/nx-electron/src/migrations/update-9-0-0/add-maker-config.js b/node_modules/nx-electron/src/migrations/update-9-0-0/add-maker-config.js
+index 53e1bd2..f4fdb28 100644
+--- a/node_modules/nx-electron/src/migrations/update-9-0-0/add-maker-config.js
++++ b/node_modules/nx-electron/src/migrations/update-9-0-0/add-maker-config.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ const schematics_1 = require("@angular-devkit/schematics");
+-const workspace_1 = require("@nrwl/workspace");
++const workspace_1 = require("@nx/workspace");
+ const path_1 = require("path");
+ function addConfigurations() {
+     return (0, workspace_1.updateWorkspace)((workspaceJson) => {
+diff --git a/node_modules/nx-electron/src/utils/config.js b/node_modules/nx-electron/src/utils/config.js
+index 609faa9..5d6e918 100644
+--- a/node_modules/nx-electron/src/utils/config.js
++++ b/node_modules/nx-electron/src/utils/config.js
+@@ -9,7 +9,7 @@ const license_webpack_plugin_1 = require("license-webpack-plugin");
+ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+ const tsconfig_paths_webpack_plugin_1 = tslib_1.__importDefault(require("tsconfig-paths-webpack-plugin"));
+ const copy_webpack_plugin_1 = tslib_1.__importDefault(require("copy-webpack-plugin"));
+-const js_1 = require("@nrwl/js");
++const js_1 = require("@nx/js");
+ exports.MAIN_OUTPUT_FILENAME = 'main.js';
+ exports.INDEX_OUTPUT_FILENAME = 'index.js';
+ exports.DEFAULT_APPS_DIR = 'apps';
+diff --git a/node_modules/nx-electron/src/utils/electron.config.js b/node_modules/nx-electron/src/utils/electron.config.js
+index 44a4386..eb670f3 100644
+--- a/node_modules/nx-electron/src/utils/electron.config.js
++++ b/node_modules/nx-electron/src/utils/electron.config.js
+@@ -2,7 +2,7 @@
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.getElectronWebpackConfig = void 0;
+ const tslib_1 = require("tslib");
+-const devkit_1 = require("@nrwl/devkit");
++const devkit_1 = require("@nx/devkit");
+ const webpack_merge_1 = require("webpack-merge");
+ const webpack_node_externals_1 = tslib_1.__importDefault(require("webpack-node-externals"));
+ const terser_webpack_plugin_1 = tslib_1.__importDefault(require("terser-webpack-plugin"));
+diff --git a/node_modules/nx-electron/src/utils/generate-package-json.d.ts b/node_modules/nx-electron/src/utils/generate-package-json.d.ts
+index a2ec5cb..d29f459 100644
+--- a/node_modules/nx-electron/src/utils/generate-package-json.d.ts
++++ b/node_modules/nx-electron/src/utils/generate-package-json.d.ts
+@@ -1,4 +1,4 @@
+-import type { ProjectGraph } from '@nrwl/devkit';
++import type { ProjectGraph } from '@nx/devkit';
+ import { BuildElectronBuilderOptions } from '../executors/build/executor';
+ /**
+  * Creates a package.json in the output directory for support  to install dependencies within containers.
+diff --git a/node_modules/nx-electron/src/utils/generate-package-json.js b/node_modules/nx-electron/src/utils/generate-package-json.js
+index 782d5a1..4340266 100644
+--- a/node_modules/nx-electron/src/utils/generate-package-json.js
++++ b/node_modules/nx-electron/src/utils/generate-package-json.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.generatePackageJson = void 0;
+-const devkit_1 = require("@nrwl/devkit");
++const devkit_1 = require("@nx/devkit");
+ const config_1 = require("./config");
+ /**
+  * Creates a package.json in the output directory for support  to install dependencies within containers.
+diff --git a/node_modules/nx-electron/src/utils/workspace.d.ts b/node_modules/nx-electron/src/utils/workspace.d.ts
+index 95fee25..f43b628 100644
+--- a/node_modules/nx-electron/src/utils/workspace.d.ts
++++ b/node_modules/nx-electron/src/utils/workspace.d.ts
+@@ -1,4 +1,4 @@
+-import { ExecutorContext } from "@nrwl/devkit";
++import { ExecutorContext } from "@nx/devkit";
+ export declare function getSourceRoot(context: ExecutorContext): {
+     sourceRoot: string;
+     projectRoot: string;
