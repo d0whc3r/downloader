@@ -1,3 +1,6 @@
+import { useParams } from '../../router'
+
 export default function SplatAll() {
-  return <h1>All</h1>
+  const path = useParams('/splat/*')
+  return <h1>All - {JSON.stringify(path)}</h1>
 }

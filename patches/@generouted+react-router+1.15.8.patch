@@ -1,0 +1,16 @@
+diff --git a/node_modules/@generouted/react-router/dist/plugin/index.cjs b/node_modules/@generouted/react-router/dist/plugin/index.cjs
+index bb3f951..758060a 100644
+--- a/node_modules/@generouted/react-router/dist/plugin/index.cjs
++++ b/node_modules/@generouted/react-router/dist/plugin/index.cjs
+@@ -79,8 +79,10 @@ var generateRouteTypes = async (options) => {
+       if (param.length) {
+         params.push(`'/${path3}': { ${param.map((p) => p.replace(/:(.+)(\?)?/, "$1$2:") + " string").join("; ")} }`);
+       }
+-      if (path3.includes("*"))
++      if (path3.includes("*")) {
++        params.push(`'/${path3}': { '*': string }`);
+         return "/" + path3.replace(/\*/g, "${string}");
++      }
+       return path3.length > 1 ? `/${path3}` : path3;
+     }
+   });
