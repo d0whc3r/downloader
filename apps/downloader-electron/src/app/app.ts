@@ -1,4 +1,4 @@
-import { BrowserWindow, screen, shell } from 'electron'
+import { BrowserWindow, protocol, screen, shell } from 'electron'
 import { join } from 'path'
 import { format } from 'url'
 
@@ -18,6 +18,20 @@ export default class App {
       parseInt(process.env.ELECTRON_IS_DEV, 10) === 1
 
     return isEnvironmentSet ? getFromEnvironment : !environment.production
+  }
+
+  static main(app: Electron.App, browserWindow: typeof BrowserWindow) {
+    // we pass the Electron.App object and the
+    // Electron.BrowserWindow into this function
+    // so this class has no dependencies. This
+    // makes the code easier to write tests for
+
+    App.BrowserWindow = browserWindow
+    App.application = app
+
+    App.application.on('window-all-closed', App.onWindowAllClosed) // Quit when all windows are closed.
+    App.application.on('ready', App.onReady) // App is ready to load data
+    App.application.on('activate', App.onActivate) // App is activated
   }
 
   private static onWindowAllClosed() {
@@ -111,19 +125,5 @@ export default class App {
         }),
       )
     }
-  }
-
-  static main(app: Electron.App, browserWindow: typeof BrowserWindow) {
-    // we pass the Electron.App object and the
-    // Electron.BrowserWindow into this function
-    // so this class has no dependencies. This
-    // makes the code easier to write tests for
-
-    App.BrowserWindow = browserWindow
-    App.application = app
-
-    App.application.on('window-all-closed', App.onWindowAllClosed) // Quit when all windows are closed.
-    App.application.on('ready', App.onReady) // App is ready to load data
-    App.application.on('activate', App.onActivate) // App is activated
   }
 }
