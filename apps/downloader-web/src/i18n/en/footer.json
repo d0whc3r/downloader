@@ -1,0 +1,7 @@
+{
+  "download.button.label": "Download all",
+  "download.button.title": "Download pending listed items",
+  "download.button.aria-label": "download all pending",
+  "delete.button.title": "Delete pending listed items",
+  "delete.button.aria-label": "delete all pending"
+}

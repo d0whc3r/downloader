@@ -3,11 +3,11 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "types": [
-      "vitest/globals",
-      "vitest/importMeta",
       "vite/client",
       "node",
-      "vitest"
+      "jest",
+      "@testing-library/jest-dom",
+      "@testing-library/jest-dom/extend-expect"
     ]
   },
   "include": [

@@ -3,23 +3,11 @@
 /* eslint-disable */
 import { components, hooks, utils } from '@generouted/react-router/client'
 
-export type Path =
-  | `/`
-  | `/about`
-  | `/posts`
-  | `/posts/:id`
-  | `/posts/:id/:pid?`
-  | `/posts/:id/deep`
-  | `/splat/${string}`
+export type Path = `/` | `/about`
 
-export type Params = {
-  '/posts/:id': { id: string }
-  '/posts/:id/:pid?': { id: string; pid?: string }
-  '/posts/:id/deep': { id: string }
-  '/splat/*': { '*': string }
-}
+export type Params = {}
 
-export type ModalPath = `/modal`
+export type ModalPath = never
 
 export const { Link, Navigate } = components<Path, Params>()
 export const { useModals, useNavigate, useParams } = hooks<

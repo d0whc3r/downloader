@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/apps/downloader-web"
@@ -53,18 +55,25 @@
       }
     },
     "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{options.reportsDirectory}"],
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{options.reportsDirectory}"
+      ],
       "options": {
+        "jestConfig": "apps/downloader-web/jest.config.ts",
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/downloader-web"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/downloader-web/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/downloader-web/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "serve-static": {
