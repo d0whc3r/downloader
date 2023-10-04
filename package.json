@@ -15,14 +15,13 @@
     "lint:all": "nx run-many --all --target=lint",
     "affected:build": "nx affected:build --exclude='*-e2e'",
     "format:write": "nx format:write",
-    "prepare": "(husky install; patch-package); echo 0",
-    "gen-ext": "nx g @spaceribs/nx-web-ext:application downloader-extension"
+    "prepare": "(husky install); echo 0"
   },
   "dependencies": {
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
     "@fontsource/roboto": "5.0.8",
-    "@generouted/react-router": "1.15.8",
+    "@generouted/react-router": "1.15.9",
     "@mui/icons-material": "5.14.11",
     "@mui/material": "5.14.11",
     "@swc/helpers": "0.5.2",
@@ -53,7 +52,7 @@
     "@nx/webpack": "16.9.1",
     "@nx/workspace": "16.9.1",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.11",
-    "@spaceribs/nx-web-ext": "2.2.1",
+    "@spaceribs/nx-web-ext": "2.2.2",
     "@svgr/webpack": "8.1.0",
     "@swc/cli": "0.1.62",
     "@swc/core": "1.3.91",
@@ -64,11 +63,11 @@
     "@total-typescript/ts-reset": "0.5.1",
     "@trivago/prettier-plugin-sort-imports": "4.2.0",
     "@types/jest": "29.5.5",
-    "@types/node": "20.8.0",
+    "@types/node": "20.8.2",
     "@types/react": "18.2.24",
     "@types/react-dom": "18.2.8",
-    "@typescript-eslint/eslint-plugin": "6.7.3",
-    "@typescript-eslint/parser": "6.7.3",
+    "@typescript-eslint/eslint-plugin": "6.7.4",
+    "@typescript-eslint/parser": "6.7.4",
     "@vitejs/plugin-react": "4.1.0",
     "@vitest/coverage-c8": "0.32.0",
     "@vitest/ui": "0.34.6",
@@ -95,15 +94,14 @@
     "lint-staged": "14.0.1",
     "npm-run-all": "4.1.5",
     "nx": "16.9.1",
-    "nx-electron": "15.1.0",
-    "patch-package": "8.0.0",
+    "nx-electron": "beta",
     "prettier": "3.0.3",
     "react-refresh": "0.14.0",
     "ts-jest": "29.1.1",
     "ts-node": "10.9.1",
     "typescript": "5.2.2",
     "url-loader": "4.1.1",
-    "vite": "4.4.9",
+    "vite": "4.4.10",
     "vite-tsconfig-paths": "4.2.1",
     "vitest": "0.34.6"
   },
@@ -113,5 +111,22 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "resolutions": {
+    "@types/react": "18.2.24",
+    "@types/react-dom": "18.2.8",
+    "@typescript-eslint/parser": "6.7.4",
+    "eslint-config-prettier": "9.0.0",
+    "nx": "16.9.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tslib": "2.6.2",
+    "typescript": "5.2.2"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@generouted/react-router@1.15.9": "patches/@generouted__react-router@1.15.9.patch",
+      "nx@16.9.1": "patches/nx@16.9.1.patch"
+    }
   }
 }
