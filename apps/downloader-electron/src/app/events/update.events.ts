@@ -3,6 +3,7 @@ import { arch, platform } from 'os'
 
 import App from '../app'
 import { updateServerUrl } from '../constants'
+
 import MessageBoxOptions = Electron.MessageBoxOptions
 
 export default class UpdateEvents {
