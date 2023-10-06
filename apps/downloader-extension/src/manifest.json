@@ -5,6 +5,12 @@
   "description": "",
   "version": "0.0.0",
   "permissions": [],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
   "action": {
     "browser_style": true,
     "default_icon": {
@@ -14,7 +20,7 @@
       "128": "assets/icons/128.png"
     },
     "default_title": "downloader-extension",
-    "default_popup": "index.html#/action",
+    "default_popup": "index.html",
     "theme_icons": [
       {
         "light": "assets/icons/16.png",

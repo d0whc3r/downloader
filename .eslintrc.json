@@ -44,7 +44,8 @@
         "react/jsx-curly-brace-presence": [
           "error",
           {
-            "props": "never"
+            "props": "never",
+            "children": "never"
           }
         ]
       }

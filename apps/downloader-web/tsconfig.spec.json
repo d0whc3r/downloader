@@ -12,6 +12,7 @@
   },
   "include": [
     "vite.config.ts",
+    "jest.*.ts",
     "src/**/*.test.ts",
     "src/**/*.spec.ts",
     "src/**/*.test.tsx",
@@ -22,5 +23,8 @@
     "src/**/*.spec.jsx",
     "src/**/*.d.ts"
   ],
-  "types": ["@nx/react/typings/cssmodule.d.ts", "@nx/react/typings/image.d.ts"]
+  "types": [
+    "@nx/react/typings/cssmodule.d.ts",
+    "@nx/react/typings/image.d.ts"
+  ]
 }
