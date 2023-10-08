@@ -24,7 +24,7 @@
     "@generouted/react-router": "1.15.9",
     "@mui/icons-material": "5.14.12",
     "@mui/material": "5.14.12",
-    "@swc/helpers": "0.5.2",
+    "@swc/helpers": "0.5.3",
     "execa": "8.0.1",
     "formik": "2.4.5",
     "i18next": "23.5.1",
@@ -64,9 +64,9 @@
     "@total-typescript/ts-reset": "0.5.1",
     "@trivago/prettier-plugin-sort-imports": "4.2.0",
     "@types/jest": "29.5.5",
-    "@types/node": "20.8.2",
+    "@types/node": "20.8.3",
     "@types/react": "18.2.25",
-    "@types/react-dom": "18.2.10",
+    "@types/react-dom": "18.2.11",
     "@typescript-eslint/eslint-plugin": "6.7.4",
     "@typescript-eslint/parser": "6.7.4",
     "@vitejs/plugin-react": "4.1.0",
@@ -77,7 +77,7 @@
     "electron": "26.3.0",
     "enzyme": "3.11.0",
     "enzyme-to-json": "3.6.2",
-    "eslint": "8.50.0",
+    "eslint": "8.51.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-cypress": "2.15.1",
     "eslint-plugin-import": "2.28.1",
@@ -115,12 +115,12 @@
     "node": ">=18"
   },
   "resolutions": {
-    "@types/react": "18.2.24",
-    "@types/react-dom": "18.2.8",
+    "@types/react": "18.2.25",
+    "@types/react-dom": "18.2.11",
     "@typescript-eslint/parser": "6.7.4",
     "eslint-config-prettier": "9.0.0",
     "node-fetch": "3.3.1",
-    "nx": "16.9.1",
+    "nx": "16.10.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tslib": "2.6.2",
@@ -129,7 +129,7 @@
   "pnpm": {
     "patchedDependencies": {
       "@generouted/react-router@1.15.9": "patches/@generouted__react-router@1.15.9.patch",
-      "nx@16.9.1": "patches/nx@16.9.1.patch"
+      "nx@16.10.0": "patches/nx@16.10.0.patch"
     }
   }
 }

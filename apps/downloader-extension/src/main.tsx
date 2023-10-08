@@ -1,14 +1,11 @@
 import { StrictMode } from 'react'
 import * as ReactDOM from 'react-dom/client'
-import { HashRouter } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 
-import App from './app/app'
+import { router } from '@ext/router'
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-root.render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <HashRouter>
-      <App />
-    </HashRouter>
+    <RouterProvider router={router} />
   </StrictMode>,
 )
