@@ -1,7 +1,15 @@
-import { useQueueIds } from '@web/store'
+import { useWebsocket } from '@web/helpers/useWebsocket'
 
 export function MainPage() {
-  const queueIds = useQueueIds()
+  const { sendMessage } = useWebsocket()
+  const handleClick = () => {
+    sendMessage({ message: 'HELLO from web/electron!' })
+  }
 
-  return <div>{queueIds.join(' -- ')}</div>
+  return (
+    <div>
+      <p>SAMPLE</p>
+      <button onClick={handleClick}>Send message</button>
+    </div>
+  )
 }

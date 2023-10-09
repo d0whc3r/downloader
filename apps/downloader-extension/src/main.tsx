@@ -1,11 +1,19 @@
-import { StrictMode } from 'react'
-import * as ReactDOM from 'react-dom/client'
-import { RouterProvider } from 'react-router-dom'
+import { ThemeProvider } from '@emotion/react'
+import { Routes } from '@generouted/react-router'
+import { CssBaseline } from '@mui/material'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
-import { router } from '@ext/router'
+import { initI18n } from './i18n'
+import theme from './theme'
+
+void initI18n()
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+  <React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Routes />
+    </ThemeProvider>
+  </React.StrictMode>,
 )

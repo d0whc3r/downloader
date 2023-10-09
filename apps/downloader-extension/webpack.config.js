@@ -1,11 +1,22 @@
 const { composePlugins, withNx } = require('@nx/webpack')
 const { withReact } = require('@nx/react')
-const path = require('node:path')
+// const {
+//   WriteIndexHtmlPlugin,
+// } = require('@nx/webpack/src/plugins/write-index-html-plugin')
+// const path = require('node:path')
 
 module.exports = composePlugins(withNx(), withReact(), (config) => {
-  config.entry = {
-    ...config.entry,
-    background: path.resolve(__dirname, 'src/background/index.ts'),
-  }
+  // config.plugins = config.plugins.map((plugin) => {
+  //   if (plugin instanceof WriteIndexHtmlPlugin) {
+  //     plugin.options.scripts = []
+  //   }
+  //   return plugin
+  // })
+
+  // config.resolve.plugins[0].configFile = path.resolve(
+  //   __dirname,
+  //   'apps/downloader-extension/tsconfig.app.json',
+  // )
+
   return config
 })

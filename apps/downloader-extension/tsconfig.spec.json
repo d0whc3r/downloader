@@ -2,11 +2,17 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "module": "commonjs",
-    "types": ["jest", "node"]
+    "types": [
+      "vite/client",
+      "node",
+      "jest",
+      "@testing-library/jest-dom",
+      "@testing-library/jest-dom/extend-expect"
+    ]
   },
   "include": [
-    "jest.config.ts",
+    "vite.config.ts",
+    "jest.*.ts",
     "src/**/*.test.ts",
     "src/**/*.spec.ts",
     "src/**/*.test.tsx",

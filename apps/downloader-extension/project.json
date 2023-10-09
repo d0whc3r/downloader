@@ -4,7 +4,7 @@
   "sourceRoot": "apps/downloader-extension/src",
   "projectType": "application",
   "targets": {
-    "build": {
+    "build-webpack": {
       "executor": "@nx/webpack:webpack",
       "outputs": [
         "{options.outputPath}"
@@ -22,12 +22,11 @@
           "apps/downloader-extension/src/assets",
           "apps/downloader-extension/src/manifest.json"
         ],
-        "styles": [
-        ],
-        "scripts": [
-        ],
+        "styles": [],
+        "scripts": [],
         "isolatedConfig": true,
-        "webpackConfig": "apps/downloader-extension/webpack.config.js"
+        "webpackConfig": "apps/downloader-extension/webpack.config.js",
+        "deleteOutputPath": false
       },
       "configurations": {
         "development": {
@@ -52,12 +51,36 @@
         }
       }
     },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/downloader-extension"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
     "serve": {
       "executor": "@spaceribs/nx-web-ext:serve",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "downloader-extension:build",
-        "hmr": true
+        "outputPath": "dist/apps/downloader-extension",
+        "hmr": true,
+        "webExtOptions": {
+          "target": [
+            "chromium"
+          ]
+        }
       },
       "configurations": {
         "development": {

@@ -16,19 +16,19 @@ export default defineConfig({
       allow: [
         path.resolve(
           __dirname,
-          '../../node_modules/**/@fontsource/roboto/files/roboto-latin-300-normal.woff2',
+          '../../node_modules/@fontsource/roboto/files/roboto-latin-300-normal.woff2',
         ),
         path.resolve(
           __dirname,
-          '../../node_modules/**/@fontsource/roboto/files/roboto-latin-400-normal.woff2',
+          '../../node_modules/@fontsource/roboto/files/roboto-latin-400-normal.woff2',
         ),
         path.resolve(
           __dirname,
-          '../../node_modules/**/@fontsource/roboto/files/roboto-latin-500-normal.woff2',
+          '../../node_modules/@fontsource/roboto/files/roboto-latin-500-normal.woff2',
         ),
         path.resolve(
           __dirname,
-          '../../node_modules/**/@fontsource/roboto/files/roboto-latin-700-normal.woff2',
+          '../../node_modules/@fontsource/roboto/files/roboto-latin-700-normal.woff2',
         ),
       ],
     },

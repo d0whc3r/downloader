@@ -15,11 +15,11 @@ const StyledContainer = styled(Container)`
 export default function AppLayout() {
   return (
     <>
-      {/*<Header />*/}
+      <Header />
       <StyledContainer maxWidth="md">
         <Outlet />
       </StyledContainer>
-      {/*<Footer />*/}
+      <Footer />
       <Modals />
     </>
   )

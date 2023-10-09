@@ -1,0 +1,11 @@
+{
+  "search.title": "Video url to add to the queue",
+  "search.placeholder": "Video URL",
+  "search.aria-label": "video url",
+  "add.aria-label": "add video url",
+  "add.title": "Add video url to queue",
+  "validation.url.valid": "Video url is not valid",
+  "validation.url.required": "Video url is required",
+  "configuration.label": "Configuration",
+  "configuration.aria-label": "configuration"
+}

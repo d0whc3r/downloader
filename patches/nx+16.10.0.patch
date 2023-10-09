@@ -1,7 +1,7 @@
-diff --git a/bin/run-executor.js b/bin/run-executor.js
+diff --git a/node_modules/nx/bin/run-executor.js b/node_modules/nx/bin/run-executor.js
 index cf71d88d51823473cefe49e0382f6e8fd9b2dc3f..3de9a03e2ae3fc2b38465fcd63dd563090d86fc5 100644
---- a/bin/run-executor.js
-+++ b/bin/run-executor.js
+--- a/node_modules/nx/bin/run-executor.js
++++ b/node_modules/nx/bin/run-executor.js
 @@ -55,6 +55,7 @@ function setUpOutputWatching(captureStderr, streamOutput) {
      });
  }
@@ -10,10 +10,10 @@ index cf71d88d51823473cefe49e0382f6e8fd9b2dc3f..3de9a03e2ae3fc2b38465fcd63dd5630
      try {
          const statusCode = await (0, run_1.run)(process.cwd(), process.env.NX_WORKSPACE_ROOT, message.targetDescription, message.overrides, message.isVerbose, message.taskGraph);
          process.exit(statusCode);
-diff --git a/src/command-line/format/format.js b/src/command-line/format/format.js
+diff --git a/node_modules/nx/src/command-line/format/format.js b/node_modules/nx/src/command-line/format/format.js
 index 4691116c22aee06970586b57fdd4140d95098789..8f94d10d715f2e7718ca8fa82fc7fa51c64faf5a 100644
---- a/src/command-line/format/format.js
-+++ b/src/command-line/format/format.js
+--- a/node_modules/nx/src/command-line/format/format.js
++++ b/node_modules/nx/src/command-line/format/format.js
 @@ -51,8 +51,8 @@ async function getPatterns(args) {
              return getPatternsFromProjects(args.projects, graph);
          }
