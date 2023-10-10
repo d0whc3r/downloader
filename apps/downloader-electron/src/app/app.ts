@@ -1,4 +1,4 @@
-import { BrowserWindow, protocol, screen, shell } from 'electron'
+import { BrowserWindow, screen, shell } from 'electron'
 import { join } from 'path'
 import { format } from 'url'
 
@@ -82,9 +82,12 @@ export default class App {
     App.mainWindow = new BrowserWindow({
       width: width,
       height: height,
+      minWidth: 600,
+      minHeight: 400,
       show: false,
       webPreferences: {
         contextIsolation: true,
+        nodeIntegration: true,
         backgroundThrottling: false,
         preload: join(__dirname, 'main.preload.js'),
       },
@@ -127,3 +130,7 @@ export default class App {
     }
   }
 }
+
+process.on('uncaughtException', (error) => {
+  console.error('[!] UNCAUGHT EXCEPTION ERROR', error)
+})

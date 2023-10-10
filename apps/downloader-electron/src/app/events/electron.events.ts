@@ -4,7 +4,9 @@
  */
 import { app, ipcMain } from 'electron'
 
-import { environment } from '../../environments/environment'
+import { environment } from '@elct/environments/environment'
+import { WebSocketServer } from '@elct/helpers/websocket'
+import { SendMessageProps } from '@elct/types/websocket'
 
 export default class ElectronEvents {
   static bootstrapElectronEvents(): Electron.IpcMain {
@@ -13,13 +15,24 @@ export default class ElectronEvents {
 }
 
 // Retrieve app version
-ipcMain.handle('get-app-version', (event) => {
+ipcMain.handle('get-app-version', () => {
   console.log(`Fetching application version... [v${environment.version}]`)
 
   return environment.version
 })
 
 // Handle App termination
-ipcMain.on('quit', (event, code) => {
+ipcMain.on('quit', (_, code) => {
   app.exit(code)
+})
+
+ipcMain.on('send-message', (event, content: SendMessageProps) => {
+  const onError: SendMessageProps['onError'] = (error) => {
+    event.reply('send-message-error', error)
+    content?.onError?.(error)
+  }
+  console.log('content!', content)
+
+  const server = WebSocketServer.getInstance()
+  server.sendMessage({ ...content, onError })
 })
