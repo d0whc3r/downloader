@@ -132,5 +132,5 @@ export default class App {
 }
 
 process.on('uncaughtException', (error) => {
-  console.log('ERROR', error)
+  console.error('[!] UNCAUGHT EXCEPTION ERROR', error)
 })

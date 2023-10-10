@@ -13,14 +13,9 @@ export default function Home() {
     send({ msg: 'Hello from extension!' })
   }
 
-  const handleClick2 = () => {
-    chrome.runtime.connect(chrome.runtime.id)
-  }
-
   return (
     <div>
       <p>This is the application root</p>
-      <button onClick={handleClick2}>Connect</button>
       <button onClick={handleClick}>Send message</button>
     </div>
   )

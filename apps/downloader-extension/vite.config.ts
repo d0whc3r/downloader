@@ -6,6 +6,8 @@ import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig(() => {
+  const isDev = process.env.NODE_ENV === 'development'
+
   return {
     cacheDir: path.resolve(
       __dirname,
@@ -43,7 +45,8 @@ export default defineConfig(() => {
     },
 
     build: {
-      sourcemap: process.env.NODE_ENV === 'development',
+      sourcemap: isDev,
+      minify: isDev ? false : 'esbuild',
       lib: {
         entry: path.resolve(__dirname, 'src/background/index.ts'),
         fileName: 'background',

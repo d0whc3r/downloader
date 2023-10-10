@@ -5,7 +5,7 @@
 import { app, ipcMain } from 'electron'
 
 import { environment } from '@elct/environments/environment'
-import { WebSocket } from '@elct/helpers/websocket'
+import { WebSocketServer } from '@elct/helpers/websocket'
 import { SendMessageProps } from '@elct/types/websocket'
 
 export default class ElectronEvents {
@@ -26,10 +26,6 @@ ipcMain.on('quit', (_, code) => {
   app.exit(code)
 })
 
-WebSocket.onMessage((msg) => {
-  console.log('message received', msg)
-})
-
 ipcMain.on('send-message', (event, content: SendMessageProps) => {
   const onError: SendMessageProps['onError'] = (error) => {
     event.reply('send-message-error', error)
@@ -37,5 +33,6 @@ ipcMain.on('send-message', (event, content: SendMessageProps) => {
   }
   console.log('content!', content)
 
-  WebSocket.sendMessage({ ...content, onError })
+  const server = WebSocketServer.getInstance()
+  server.sendMessage({ ...content, onError })
 })

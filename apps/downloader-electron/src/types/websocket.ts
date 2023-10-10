@@ -24,6 +24,5 @@ export type MessageCallback = (data: RawData, isBinary: boolean) => void
 
 export type SendMessageProps = {
   message: BufferLike
-  clientId?: string
   onError?: ErrorCallback
 }
