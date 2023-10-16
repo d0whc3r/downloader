@@ -51,6 +51,24 @@
         }
       }
     },
+    "build-nm": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nodemon --config apps/downloader-extension/nodemon.json"
+        ]
+      }
+    },
+    "serve-ext": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "wait-on dist/apps/downloader-extension/manifest.json",
+          "web-ext run --source-dir=dist/apps/downloader-extension --target=chromium"
+        ],
+        "parallel": false
+      }
+    },
     "build": {
       "executor": "@nx/vite:build",
       "outputs": [
@@ -73,7 +91,6 @@
       "executor": "@spaceribs/nx-web-ext:serve",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "downloader-extension:build",
         "outputPath": "dist/apps/downloader-extension",
         "hmr": true,
         "webExtOptions": {
@@ -84,10 +101,9 @@
       },
       "configurations": {
         "development": {
-          "buildTarget": "downloader-extension:build:development"
+          "hmr": true
         },
         "production": {
-          "buildTarget": "downloader-extension:build:production",
           "hmr": false
         }
       }

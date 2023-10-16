@@ -40,5 +40,5 @@ const defaultConfigStoreValue: ConfigStore = {
 export const configStore = atom({
   key: CONFIG_STORE_KEY,
   default: { ...defaultConfigStoreValue },
-  effects: [genericSyncEffect(CONFIG_STORE_KEY, defaultConfigStoreValue)],
+  effects: [genericSyncEffect<ConfigStore>(CONFIG_STORE_KEY)],
 })

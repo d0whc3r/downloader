@@ -41,10 +41,10 @@ export const queueStore = atomFamily<QueueStore, string>({
   effects: [genericSyncEffect(QUEUE_STORE_KEY)],
 })
 
-export const queueIdStore = atom<string[]>({
+export const queueIdStore = atom({
   key: QUEUE_STORE_ID_KEY,
   default: [],
-  effects: [genericSyncEffect(QUEUE_STORE_ID_KEY)],
+  effects: [genericSyncEffect<string[]>(QUEUE_STORE_ID_KEY)],
 })
 
 // import { atom, selectorFamily } from 'recoil'

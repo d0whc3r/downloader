@@ -1,0 +1,43 @@
+diff --git a/node_modules/@crxjs/vite-plugin/dist/index.cjs b/node_modules/@crxjs/vite-plugin/dist/index.cjs
+index ddf06b4..5ecea3e 100644
+--- a/node_modules/@crxjs/vite-plugin/dist/index.cjs
++++ b/node_modules/@crxjs/vite-plugin/dist/index.cjs
+@@ -2909,7 +2909,7 @@ const pluginManifest = (_manifest) => () => {
+           manifest2.content_scripts = manifest2.content_scripts.map(({ js = [], ...rest }) => {
+             const refJS = js.map((file) => this.emitFile({
+               type: "chunk",
+-              id: file,
++              id: path.resolve(config.root, file),
+               name: basename(file)
+             }));
+             return { js: refJS, ...rest };
+@@ -2920,7 +2920,7 @@ const pluginManifest = (_manifest) => () => {
+             const file = manifest2.background.service_worker;
+             const refId2 = this.emitFile({
+               type: "chunk",
+-              id: file,
++              id: path.resolve(config.root, file),
+               name: basename(file)
+             });
+             manifest2.background.service_worker = refId2;
+@@ -2928,7 +2928,7 @@ const pluginManifest = (_manifest) => () => {
+           for (const file of htmlFiles(manifest2)) {
+             this.emitFile({
+               type: "chunk",
+-              id: file,
++              id: path.resolve(config.root, file),
+               name: basename(file)
+             });
+           }
+diff --git a/node_modules/@crxjs/vite-plugin/dist/index.d.ts b/node_modules/@crxjs/vite-plugin/dist/index.d.ts
+index 3d30ed1..c5b8b46 100644
+--- a/node_modules/@crxjs/vite-plugin/dist/index.d.ts
++++ b/node_modules/@crxjs/vite-plugin/dist/index.d.ts
+@@ -73,6 +73,7 @@ interface ManifestV3 {
+         match_about_blank?: boolean | undefined;
+         include_globs?: string[] | undefined;
+         exclude_globs?: string[] | undefined;
++        world?: 'MAIN' | 'ISOLATED'
+     }[] | undefined;
+     content_security_policy?: {
+         extension_pages?: string;

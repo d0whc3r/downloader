@@ -1,4 +1,4 @@
-import { useMessage } from '../helpers/useMessage'
+import { useMessage } from '@ext/helpers/useMessage'
 
 export const Loader = () => 'Route loader'
 export const Action = () => 'Route action'
