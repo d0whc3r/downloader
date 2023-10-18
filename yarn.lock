@@ -1590,13 +1590,13 @@
   resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-5.0.8.tgz#613b477a56f21b5705db1a67e995c033ef317f76"
   integrity sha512-XxPltXs5R31D6UZeLIV1td3wTXU3jzd3f2DLsXI8tytMGBkIsGcc9sIyiupRtA8y73HAhuSCeweOoBqf6DbWCA==
 
-"@generouted/react-router@1.16.0":
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/@generouted/react-router/-/react-router-1.16.0.tgz#5684a57fd906ba6634d523754d13cba41a051041"
-  integrity sha512-yk+pQaMwdawY3spudOxvWovF8w8qEwn0eL8kd1YxaJjC+SSK0SQEwk1SYT3eYV+PXSc/ypnbaqaLBzlARj9neg==
+"@generouted/react-router@1.16.1":
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/@generouted/react-router/-/react-router-1.16.1.tgz#9ba1a07460444afd0e71c30946fe3b1cb1608db2"
+  integrity sha512-py0Ms4ekQm68mVS7ZgyRMN9hI0vj0sLykHNUjHNiB1VbVfBX5rWuSb0pqBfz2ykFobL5e0otpElEq4M3oJRl4w==
   dependencies:
     fast-glob "^3.3.1"
-    generouted "^1.16.0"
+    generouted "^1.16.1"
 
 "@humanwhocodes/config-array@^0.11.11":
   version "0.11.11"
@@ -7057,10 +7057,10 @@ fx-runner@1.2.0:
     which "1.2.4"
     winreg "0.0.12"
 
-generouted@^1.16.0:
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/generouted/-/generouted-1.16.0.tgz#82cc740188fde7f680de64cee57578889059b82d"
-  integrity sha512-kpPOZ3/T1dh5+3fzeBKwWD6xLWmzFcgLSNXJGrN6DevMh90tB+qMqDOni3zJSLCBnCI4/wbgWYm1My93zxaE/A==
+generouted@^1.16.1:
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/generouted/-/generouted-1.16.1.tgz#b745ac0b80a4731e84ea65cb24579faa058196fd"
+  integrity sha512-BF3aNxGowJHJS47Ketwole1UeidwVAUMwHvGXipW29sq8vNqblLYlZDYW7jNXOptL9s5Hu5BrbM3S95/lyNI7w==
 
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
