@@ -2,7 +2,7 @@ import { crx } from '@crxjs/vite-plugin'
 import generouted from '@generouted/react-router/plugin'
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 import react from '@vitejs/plugin-react'
-import path from 'node:path'
+import * as path from 'node:path'
 import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 

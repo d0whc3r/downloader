@@ -1,0 +1,13 @@
+diff --git a/node_modules/@crxjs/vite-plugin/dist/index.mjs b/node_modules/@crxjs/vite-plugin/dist/index.mjs
+index 5c3f629..68590c8 100644
+--- a/node_modules/@crxjs/vite-plugin/dist/index.mjs
++++ b/node_modules/@crxjs/vite-plugin/dist/index.mjs
+@@ -1853,7 +1853,7 @@ const pluginWebAccessibleResources = () => {
+         const contentScripts2 = opts.contentScripts || {};
+         browser = opts.browser || "chrome";
+         injectCss = contentScripts2.injectCss ?? true;
+-        return { ...config2, build: { ...build, manifest: command === "build" } };
++        return { ...config2, build: { ...build, manifest: 'manifest.json' } };
+       },
+       configResolved(_config) {
+         config = _config;

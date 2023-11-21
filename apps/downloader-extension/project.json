@@ -91,6 +91,7 @@
       "executor": "@spaceribs/nx-web-ext:serve",
       "defaultConfiguration": "development",
       "options": {
+        "buildTarget": "downloader-extension:build",
         "outputPath": "dist/apps/downloader-extension",
         "hmr": true,
         "webExtOptions": {

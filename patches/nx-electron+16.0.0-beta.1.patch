@@ -1,0 +1,13 @@
+diff --git a/node_modules/nx-electron/src/executors/build/executor.js b/node_modules/nx-electron/src/executors/build/executor.js
+index 7934817..9e3887e 100644
+--- a/node_modules/nx-electron/src/executors/build/executor.js
++++ b/node_modules/nx-electron/src/executors/build/executor.js
+@@ -8,7 +8,7 @@ const rxjs_for_await_1 = require("rxjs-for-await");
+ const fs_1 = require("fs");
+ const run_webpack_1 = require("../../utils/run-webpack");
+ const project_graph_1 = require("@nx/workspace/src/core/project-graph");
+-const buildable_libs_utils_1 = require("@nx/workspace/src/utilities/buildable-libs-utils");
++const buildable_libs_utils_1 = require("@nx/js/src/utils/buildable-libs-utils");
+ const electron_config_1 = require("../../utils/electron.config");
+ const normalize_1 = require("../../utils/normalize");
+ const workspace_1 = require("../../utils/workspace");

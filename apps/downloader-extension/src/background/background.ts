@@ -20,9 +20,18 @@ chrome.webNavigation.onHistoryStateUpdated.addListener((details) => {
   console.log('NAVIGATION', { tabId, currentUrl, details })
 })
 
+chrome.webRequest.onSendHeaders.addListener(
+  (details) => {
+    if (details?.requestHeaders) {
+      console.log('----------- onBeforeSendHeaders', details)
+    }
+  },
+  { urls: ['http://*/*', 'https://*/*'] },
+  ['extraHeaders', 'requestHeaders'],
+)
+
 chrome.webRequest.onCompleted.addListener(
   (details) => {
-    console.log('WEBREQUEST', details)
     const { url, type, method } = details
     const validTypes: chrome.webRequest.ResourceType[] = [
       'xmlhttprequest',
@@ -47,10 +56,10 @@ chrome.webRequest.onCompleted.addListener(
           search: urlObject.search,
           type,
           url,
+          details,
         })
       }
     }
-    // console.log('WEBREQUEST', details)
   },
   { urls: ['http://*/*', 'https://*/*'] },
 )
