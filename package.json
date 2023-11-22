@@ -107,8 +107,8 @@
     "web-ext-types": "3.2.1"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx}": "pnpm eslint -c .eslintrc.husky.json --fix",
-    "*": "pnpm format:write --base=origin/master"
+    "*.{js,ts,jsx,tsx}": "yarn eslint -c .eslintrc.husky.json --fix",
+    "*": "yarn format:write --base=origin/master"
   },
   "engines": {
     "node": ">=18"
