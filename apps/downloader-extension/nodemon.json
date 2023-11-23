@@ -1,0 +1,15 @@
+{
+  "ext": "*",
+  "verbose": true,
+  "exec": "yarn nx run downloader-extension:build:development",
+  "ignore": [
+    "**/test/**",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/coverage/**",
+    "**/build/**",
+    "**/public/**",
+    "**/*.spec.*",
+    "**/src/router.ts"
+  ]
+}

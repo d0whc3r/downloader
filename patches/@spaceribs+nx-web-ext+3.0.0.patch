@@ -1,5 +1,5 @@
 diff --git a/node_modules/@spaceribs/nx-web-ext/src/executors/serve/executor.js b/node_modules/@spaceribs/nx-web-ext/src/executors/serve/executor.js
-index 1583ab9..d01d600 100644
+index 1583ab9..6bb93bd 100644
 --- a/node_modules/@spaceribs/nx-web-ext/src/executors/serve/executor.js
 +++ b/node_modules/@spaceribs/nx-web-ext/src/executors/serve/executor.js
 @@ -30,7 +30,7 @@ const runServe = (options, context) => tslib_1.__awaiter(void 0, void 0, void 0,
