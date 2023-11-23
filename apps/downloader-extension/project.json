@@ -6,9 +6,7 @@
   "targets": {
     "build-webpack": {
       "executor": "@nx/webpack:webpack",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
@@ -54,9 +52,7 @@
     "build-nm": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": [
-          "nodemon --config apps/downloader-extension/nodemon.json"
-        ]
+        "commands": ["nodemon --config apps/downloader-extension/nodemon.json"]
       }
     },
     "serve-ext": {
@@ -71,9 +67,7 @@
     },
     "build": {
       "executor": "@nx/vite:build",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/apps/downloader-extension"
@@ -95,9 +89,7 @@
         "outputPath": "dist/apps/downloader-extension",
         "hmr": true,
         "webExtOptions": {
-          "target": [
-            "chromium"
-          ]
+          "target": ["chromium"]
         }
       },
       "configurations": {
@@ -111,20 +103,14 @@
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/downloader-extension/**/*.{ts,tsx,js,jsx}"
-        ]
+        "lintFilePatterns": ["apps/downloader-extension/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/downloader-extension/jest.config.ts",
         "passWithNoTests": true
@@ -138,9 +124,7 @@
     },
     "package": {
       "executor": "@spaceribs/nx-web-ext:package",
-      "dependsOn": [
-        "build"
-      ],
+      "dependsOn": ["build"],
       "options": {
         "sourceDir": "dist/apps/downloader-extension",
         "artifactsDir": "/disk2/projects/downloader/dist/apps"
