@@ -1787,7 +1787,7 @@ __metadata:
     "@trivago/prettier-plugin-sort-imports": "npm:4.3.0"
     "@types/chrome": "npm:0.0.253"
     "@types/jest": "npm:29.5.10"
-    "@types/node": "npm:20.9.5"
+    "@types/node": "npm:20.10.6"
     "@types/react": "npm:18.2.38"
     "@types/react-dom": "npm:18.2.17"
     "@types/ws": "npm:8.5.10"
@@ -4490,12 +4490,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.9.5":
-  version: 20.9.5
-  resolution: "@types/node@npm:20.9.5"
+"@types/node@npm:20.10.6":
+  version: 20.10.6
+  resolution: "@types/node@npm:20.10.6"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 54b722195e3292d8b14b9aaac971044bf4f2e6d7263c2942fd088213216443878f47c3df441a0722a228cf823ea64c1a5923b362ea5db41f044b7f30ed140bce
+  checksum: 6692ccfa8552ef60c4069fda3c8de726c23e8d403cdf788e3c7efa769987e80fbda5f02723dd857f9de7df24a5fa40b3ed4580ec3c5cbac04eba44cf7b2ab1dc
   languageName: node
   linkType: hard
 
