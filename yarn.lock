@@ -1613,9 +1613,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@crxjs/vite-plugin@npm:2.0.0-beta.21":
-  version: 2.0.0-beta.21
-  resolution: "@crxjs/vite-plugin@npm:2.0.0-beta.21"
+"@crxjs/vite-plugin@npm:2.0.0-beta.25":
+  version: 2.0.0-beta.25
+  resolution: "@crxjs/vite-plugin@npm:2.0.0-beta.25"
   dependencies:
     "@rollup/pluginutils": "npm:^4.1.2"
     "@webcomponents/custom-elements": "npm:^1.5.0"
@@ -1633,7 +1633,7 @@ __metadata:
     react-refresh: "npm:^0.13.0"
     rollup: "npm:2.78.1"
     rxjs: "npm:7.5.7"
-  checksum: 4ee1bb6bec4908d88ed1845c2d58eb012c1e88aa594be8896b79c68438c1853a34b3cdb77ef89e8e7abe318e367bd1bea83d56be13ec24ac3d65e15d26af8467
+  checksum: 58147a0c1a7fb6bff02087d8e013ec9a0b233843c7a67328f43a64a2a20a2d9567fc3e454c454294535d68410cd70b3d94270c2d8f27bebb11c92f3e055c854b
   languageName: node
   linkType: hard
 
@@ -1762,7 +1762,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:7.23.3"
     "@babel/preset-react": "npm:7.23.3"
-    "@crxjs/vite-plugin": "npm:2.0.0-beta.21"
+    "@crxjs/vite-plugin": "npm:2.0.0-beta.25"
     "@emotion/babel-plugin": "npm:11.11.0"
     "@emotion/jest": "npm:11.11.0"
     "@emotion/react": "npm:11.11.1"
