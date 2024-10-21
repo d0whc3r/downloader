@@ -42,7 +42,7 @@
   "devDependencies": {
     "@babel/core": "7.23.3",
     "@babel/preset-react": "7.23.3",
-    "@crxjs/vite-plugin": "2.0.0-beta.21",
+    "@crxjs/vite-plugin": "2.0.0-beta.26",
     "@emotion/babel-plugin": "11.11.0",
     "@emotion/jest": "11.11.0",
     "@nx/cypress": "17.1.3",
