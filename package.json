@@ -40,8 +40,8 @@
     "zustand": "4.4.6"
   },
   "devDependencies": {
-    "@babel/core": "7.23.3",
-    "@babel/preset-react": "7.23.3",
+    "@babel/core": "7.25.9",
+    "@babel/preset-react": "7.25.9",
     "@crxjs/vite-plugin": "2.0.0-beta.21",
     "@emotion/babel-plugin": "11.11.0",
     "@emotion/jest": "11.11.0",
